@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from "@angular/core";
+import { FormControl } from "@angular/forms";
+import { Country } from "./interfaces/country.interface";
+import { CountryService } from "./services/country-service/country.service";
 
 @Component({
-  selector: 'app-exercise1',
-  templateUrl: './exercise1.component.html',
-  styleUrls: ['./exercise1.component.css']
+  selector: "app-exercise1",
+  templateUrl: "./exercise1.component.html",
+  styleUrls: ["./exercise1.component.css"],
 })
-export class Exercise1Component implements OnInit {
+export class Exercise1Component {
+  countryService = inject(CountryService);
 
-  constructor() { }
+  countries$ = this.countryService.getCountries$();
 
-  ngOnInit() {
-  }
-
+  formControl = new FormControl<Country | null>(null);
 }
