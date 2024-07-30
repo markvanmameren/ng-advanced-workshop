@@ -13,5 +13,5 @@ export class Exercise1Component {
 
   countries$ = this.countryService.getCountries$();
 
-  formControl = new FormControl<Country | null>(null);
+  formControl = new FormControl<Country["id"]>(null);
 }
